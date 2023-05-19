@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
 using Wisej.Core;
 using Wisej.Design;
 using Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid.Configuration;
@@ -19,6 +20,7 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         /// Default Value: undefined
         /// The value of this property will be passed to the accesskey attribute of the HTML element that underlies the UI component.
         /// </summary>
+        [Editor("Wisej.Design.CodeEditor, Wisej.Framework.Design, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17bef35e11b84171", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
         public string AccessKey
         {
             //get { return this.Options.accessKey; }
@@ -40,8 +42,8 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         [WisejSerializerOptions(WisejSerializerOptions.None)]
         public bool ActiveStateEnabled
         {
-            get { return this.Options.activeStateEnabled; }
-            set { this.Options.activeStateEnabled = value; }
+            get { return (bool)GetOptionProperty("activeStateEnabled"); }
+            set { SetOptionProperty("activeStateEnabled", value); }
         }
 
         //https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#allowColumnReordering
@@ -49,27 +51,27 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         //Default Value: false
         public bool AllowColumnReordering
         {
-            get { return this.Options.allowColumnReordering; }
-            set { this.Options.allowColumnReordering = value; }
+            get { return (bool)GetOptionProperty("allowColumnReordering"); }
+            set { SetOptionProperty("allowColumnReordering", value); }
         }
 
         //https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#allowColumnResizing
         //Type: Boolean
         //Default Value: false
 
-        public bool AllowColumnResizing
+        public bool? AllowColumnResizing
         {
             get { return this.Options.allowColumnResizing; }
             set { this.Options.allowColumnResizing = value; }
         }
-
+        
         /// <summary>
         /// https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/#autoNavigateToFocusedRow
         /// Type: Boolean
         /// Default Value: true
         /// Note: You must specify the component's height to ensure that the autoNavigateToFocusedRow property works properly.
         /// </summary>
-        public bool AutoNavigateToFocusedRow
+        public bool? AutoNavigateToFocusedRow
         {
             get { return this.Options.autoNavigateToFocusedRow; }
             set { this.Options.autoNavigateToFocusedRow = value; }
@@ -84,7 +86,7 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         /// Caching is helpful when the data source takes significant time to load. But, consider disabling it for frequently changing data sources.
         ///To update data in cache, call the refresh() method of the UI component or the reload() method of the DataSource:
         /// </summary>
-        public bool CacheEnabled
+        public bool? CacheEnabled
         {
             get { return this.Options.cacheEnabled; }
             set { this.Options.cacheEnabled = value; }
@@ -96,7 +98,7 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         /// Default Value: true
         /// Enables a hint that appears when a user hovers the mouse pointer over a cell with truncated content.
         /// </summary>
-        public bool CellHintEnabled
+        public bool? CellHintEnabled
         {
             get { return this.Options.cellHintEnabled; }
             set { this.Options.cellHintEnabled = value; }
@@ -108,12 +110,15 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
         /// Default Value: false
         /// Specifies whether columns should adjust their widths to the content.
         /// </summary>
-        public bool ColumnAutoWidth
+        public bool? ColumnAutoWidth
         {
             get { return this.Options.columnAutoWidth; }
             set { this.Options.columnAutoWidth = value; }
         }
-
+        
+        [DesignerActionList]
+        [Browsable(true)]
+        [WisejSerializerOptions(WisejSerializerOptions.None)]
         public dxColumnChooser ColumnChooser
         {
             get { return this.Options.columnChooser; }
@@ -144,7 +149,9 @@ namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
             set { this.Options.dataSource = value; }
         }
 
-        public IEnumerable<object> Columns
+        //[Editor("Wisej.Design.DataGridViewColumnCollectionEditor, Wisej.Framework.Design, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17bef35e11b84171", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        //[DesignerSerializer("Wisej.Design.DataGridViewColumnCollectionCodeDomSerializer, Wisej.Framework.Design, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17bef35e11b84171", "System.ComponentModel.Design.Serialization.CodeDomSerializer, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        public dxColumn[] Columns
         {
             get { return this.Options.columns; }
             set { this.Options.columns = value; }

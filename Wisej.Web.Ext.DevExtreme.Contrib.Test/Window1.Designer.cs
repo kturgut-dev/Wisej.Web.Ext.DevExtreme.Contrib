@@ -34,16 +34,17 @@
             // dxDataGridContrib1
             // 
             this.dxDataGridContrib1.AccessKey = "test";
+            this.dxDataGridContrib1.Columns = new Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid.Configuration.dxColumn[0];
             this.dxDataGridContrib1.Dock = Wisej.Web.DockStyle.Fill;
             this.dxDataGridContrib1.Name = "dxDataGridContrib1";
-            this.dxDataGridContrib1.Size = new System.Drawing.Size(991, 567);
+            this.dxDataGridContrib1.Size = new System.Drawing.Size(975, 559);
             this.dxDataGridContrib1.TabIndex = 0;
             // 
             // Window1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = Wisej.Web.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 568);
+            this.ClientSize = new System.Drawing.Size(975, 559);
             this.Controls.Add(this.dxDataGridContrib1);
             this.Name = "Window1";
             this.Text = "Window1";
