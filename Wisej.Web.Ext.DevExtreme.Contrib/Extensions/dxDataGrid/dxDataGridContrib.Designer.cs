@@ -1,6 +1,6 @@
-﻿namespace Wisej.Web.Ext.DevExtreme.Contrib
+﻿namespace Wisej.Web.Ext.DevExtreme.Contrib.Extensions.dxDataGrid
 {
-    partial class UserControl1
+    partial class dxDataGridContrib
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.SuspendLayout();
+            // 
+            // dxDataGridContrib
+            // 
+            this.Name = "dxDataGridContrib";
+            this.Size = new System.Drawing.Size(953, 469);
+            this.Load += new System.EventHandler(this.dxDataGridContrib_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
